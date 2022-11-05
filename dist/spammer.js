@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import { Randomizer } from "./randomizer.js";
 import fetch from "node-fetch";
 export class GDPSSpammer {
@@ -36,7 +37,7 @@ export class GDPSSpammer {
     async start() {
         for (let i = 0; i < this.amount; i++) {
             const { username, email, password } = Randomizer.randomAccount();
-            console.log(`Created user:\n    Username: ${username}\n    Email: ${email}\n    Password: ${password}`);
+            console.log(`Created user:\n    Username: ${chalk.blue(username)}\n    Email: ${chalk.blue(email)}\n    Password: ${chalk.blue(password)}`);
             await this.registerAccount({ username, email, password });
         }
     }
